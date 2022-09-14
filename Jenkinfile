@@ -1,0 +1,72 @@
+Jenkinsfile :- 
+
+#!groovy
+@Library('latest') _
+
+
+
+def ispublishNeed = true
+
+def branchname = env.BRANCH_NAME
+
+def isMasterBranch = env.BRANCH_NAME == "master"
+def isDevelopBranch = env.BRANCH_NAME == "develop"
+def isHotfixBranch = env.BRANCH_NAME.split("/")[0] == "hotfix"
+def isReleaseBranch = env.BRANCH_NAME.split("/")[0] == "release"
+def isBugfixBranch = env.BRANCH_NAME.split("/")[0] == "bugfix"
+def isFeatureBranch = env.BRANCH_NAME.split("/")[0] == "feature"
+echo "branchName :"+ env.BRANCH_NAME
+echo "isMasterBranch : "+ isMasterBranch
+echo "isDevelopBranch : "+ isDevelopBranch
+echo "isHotfixBranch : "+ isHotfixBranch
+echo "isReleaseBranch : "+ isReleaseBranch
+echo "isBugfixBranch :" + isBugfixBranch
+echo "isFeatureBranch : "+ isFeatureBranch
+
+if (branchname =~ "PR-*") {
+  ispublishNeed = false
+}
+
+// Define uniquie .zip file name by appending timestamp
+def myVar="2022.08.0-#TIMESTAMP#-#BUILD_NUMBER#"
+def zipName="ddl-"+myVar+".zip"
+
+// adding a test block 
+
+def var = "zkfrx13,ddl/sql/InAuthDatabase/MRISK/DDL-Schema/202208-01-gg_mrisk_v650-to-v690.sql" 
+//def ddl1= "ddl/sql/InAuthDatabase/MRISK/DDL-Schema/202208-01-gg_mrisk_v650-to-v690.sql"
+
+nonCompiledPipeline {
+
+//Basic Properties
+    ait = "46252"
+    spk = "AUTHHUB"
+    repo = "ddl"
+
+// Unit Test
+    executeUnitTest= true
+    unitTestCommand= "sh build.sh " + var 
+//	unitTestCommand = unitTestCommand + ddl1
+    unitTestFailFast=false 
+	
+	
+	
+// Package & Publish artifacts 
+    publishMasterToRelease= false
+	publishDMZ = true
+    executeCreateArtifact = true
+    executePublishArtifact = (isDevelopBranch || isReleaseBranch)
+    artifactoryRepo = "generic"
+
+	// Zip  all files and publish to Artifactory
+	createZipFiles = [[src:"sql", includePattern: "**", destination:zipName]]
+	
+	// Publish only Application .jar and DependencyJars.zip to Artifactory.
+    publishFileList = [[
+				"groupId": "com.baml.authhub.ddl",
+				"artifactId":"ddl",
+				"version":myVar,
+				"artifactLocation":"*.zip"
+				]]
+  }
+
