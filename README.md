@@ -17,4 +17,10 @@ As soon as the git commit happens, the pre commit shell script should be able to
 3. Username of developer such as git config user.name. This data should be appended inside that respective SQL file in the header section.
 
 
+Pre-commit
+
+https://pre-commit.com/
+
+
+
 
