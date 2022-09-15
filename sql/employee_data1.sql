@@ -2,7 +2,7 @@
 --Perforce Change Identification Tags
 --$Id: //ecomm-auth-hub/common/SQL/Sql-2019-11.0/AuthHub Database/VENOM_DBAAS/01-ATHN_CST_PHOTO_IMG.sql#1 $
 --$Author: nbkqwos $
-
+--$Datetime: Month Date year time
 -----------------------------------------------------------------------------------------------------------------------
 
 DROP DATABASE IF EXISTS employees;
