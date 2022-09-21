@@ -21,6 +21,64 @@ Pre-commit
 
 https://pre-commit.com/
 
+//ecomm-auth-hub/common/SQL/ static 
+
+Sql-2019-11.0 (Git branch name )
+
+#1:- N+1 (Datetime unique )
+
+
+-----------------------------------------------------------------------
+--Perforce Change Identification Tags
+--$Id: //ecomm-auth-hub/common/SQL/Sql-2019-11.0/AuthHub Database/VENOM_DBAAS/01-ATHN_CST_PHOTO_IMG.sql#1 $
+--$Author: nbkqwos $
+--$Datetime: Month Date year time
+-----------------------------------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE Package 
+-----------------------------------------------------------------------
+--Perforce Change Identification Tags
+--$Id: //ecomm-auth-hub/common/SQL/Sql-2019-11.0/AuthHub Database/VENOM_DBAAS/01-ATHN_CST_PHOTO_IMG.sql#1 $
+--$Author: nbkqwos $
+--$Datetime: Month Date year time
+-----------------------------------------------------------------------------------------------------------------------
+
+
+CREATE OR REPLACE Package Body 
+-----------------------------------------------------------------------
+--Perforce Change Identification Tags
+--$Id: //ecomm-auth-hub/common/SQL/Sql-2019-11.0/AuthHub Database/VENOM_DBAAS/01-ATHN_CST_PHOTO_IMG.sql#1 $
+--$Author: nbkqwos $
+--$Datetime: Month Date year time
+-----------------------------------------------------------------------------------------------------------------------
+
+
+create or replace function 
+
+-----------------------------------------------------------------------
+--Perforce Change Identification Tags
+--$Id: //ecomm-auth-hub/common/SQL/Sql-2019-11.0/AuthHub Database/VENOM_DBAAS/01-ATHN_CST_PHOTO_IMG.sql#1 $
+--$Author: nbkqwos $
+--$Datetime: Month Date year time
+-----------------------------------------------------------------------------------------------------------------------
+
+create or replace type 
+
+-----------------------------------------------------------------------
+--Perforce Change Identification Tags
+--$Id: //ecomm-auth-hub/common/SQL/Sql-2019-11.0/AuthHub Database/VENOM_DBAAS/01-ATHN_CST_PHOTO_IMG.sql#1 $
+--$Author: nbkqwos $
+--$Datetime: Month Date year time
+-----------------------------------------------------------------------------------------------------------------------
+
+4. Pre-commit.sh how can we make a pre-condition to ensure pre-commit.sh is automatically updated every single time. 
+
+https://pre-commit.com/#pre-commit-autoupdate
+
+
+
+
+
 
 
 
